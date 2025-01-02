@@ -1,0 +1,107 @@
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Header */
+header {
+    text-align: center;
+    background-color: #444;
+    color: white;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+header p {
+    margin: 5px 0 0;
+    line-height: 1.4;
+}
+
+header a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+/* Main Container */
+main {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Sections */
+section {
+    margin-bottom: 30px;
+}
+
+section h2 {
+    border-bottom: 2px solid #444;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-size: 1.2em;
+}
+
+/* Resume Entries (Education, Experience, etc.) */
+.resume-entry {
+    display: flex;               /* We use flex to split left & right columns */
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+/* Left side: Titles, bullet points, description */
+.resume-entry-left {
+    width: 70%;                  /* Adjust percentages as desired */
+    margin-right: 1rem;
+}
+
+.resume-entry-left h3 {
+    margin: 0 0 5px;
+    font-size: 1.1em;
+}
+
+.resume-entry-left p, 
+.resume-entry-left ul {
+    margin: 6px 0 0;
+}
+
+/* Right side: Dates / Timeline */
+.resume-entry-right {
+    width: 25%;                 /* Adjust to control how wide the date column is */
+    text-align: right;
+    font-style: italic;
+    color: #666;
+}
+
+/* Optional: For bullet points in .resume-entry-left */
+.resume-entry-left ul {
+    list-style: disc;
+    padding-left: 1.3rem;
+}
+
+/* Links */
+a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
