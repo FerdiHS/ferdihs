@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  @apply text-center bg-gray-700 text-white py-8 mb-8;
+}
+
+.header-title {
+  @apply text-2xl font-bold m-0;
+}
+
+.header-link {
+  @apply inline-flex items-center no-underline text-blue-400 hover:underline;
+}
+
+.header-link-margin {
+  @apply mt-2;
+}
+
+.main-container {
+  @apply max-w-3xl mx-auto bg-white p-8 rounded-md shadow-md;
+}
+
+.section-title {
+  @apply border-b-2 border-gray-700 pb-1 mb-4 uppercase text-lg font-semibold;
+}
+
+.flex-container {
+  @apply flex justify-between mb-6;
+}
+
+.flex-item-left {
+  @apply w-[70%] mr-4;
+}
+
+.flex-item-right {
+  @apply w-[30%] text-right italic text-gray-600;
+}
+
+.list-default {
+  @apply list-disc list-outside ml-5 space-y-1;
+}
