@@ -12,7 +12,7 @@ export default function Page() {
             rel="noopener noreferrer"
             className="header-link"
           >
-            <Image src="/linkedin.svg" alt="LinkedIn" width={24} height={24} className="fill-[#0077b5] mr-2" />
+            <Image src="linkedin.svg" alt="LinkedIn" width={24} height={24} className="fill-[#0077b5] mr-2" />
             linkedin.com/in/ferdihs
           </a>
           <br />
@@ -22,7 +22,7 @@ export default function Page() {
             rel="noopener noreferrer"
             className="header-link header-link-margin"
           >
-            <Image src="/github.svg" alt="GitHub" width={24} height={24} className="mr-2" />
+            <Image src="github.svg" alt="GitHub" width={24} height={24} className="mr-2" />
             github.com/FerdiHS
           </a>
         </p>
