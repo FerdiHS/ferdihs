@@ -17,20 +17,23 @@ type Education = {
   institution: string;
   degree: string;
   relevantCourses: string[];
-  period: string;
+  start?: string;
+  end?: string;
 };
 
 type Experience = {
   company: string;
   role: string;
-  period: string;
+  start?: string;
+  end?: string;
   bullets: string[];
 };
 
 type Project = {
   name: string;
   stack: string;
-  period: string;
+  start?: string;
+  end?: string;
   bullets: string[];
   links?: Link[];
 };
@@ -61,6 +64,13 @@ const loadResumeData = (): ResumeData => {
   const filePath = path.join(process.cwd(), "public", "profile.json");
   const jsonContent = fs.readFileSync(filePath, "utf8");
   return JSON.parse(jsonContent) as ResumeData;
+};
+
+const formatPeriod = (start?: string, end?: string) => {
+  if (!start && !end) return "";
+  if (!start) return end ?? "";
+  if (!end || start === end) return start;
+  return `${start} – ${end}`;
 };
 
 export default function Page() {
@@ -106,7 +116,7 @@ export default function Page() {
                 ))}
               </ul>
             </div>
-            <div className="flex-item-right">{education.period}</div>
+            <div className="flex-item-right">{formatPeriod(education.start, education.end)}</div>
           </div>
         </section>
 
@@ -114,7 +124,7 @@ export default function Page() {
         <h2 className="section-title">Working Experience</h2>
         <div className="space-y-6">
         {experience.map((role) => (
-              <div className="flex justify-between" key={`${role.company}-${role.period}`}>
+              <div className="flex justify-between" key={role.company}>
                 <div className="flex-item-left">
                   <h3 className="text-base font-semibold mb-1">
                     {role.company} | {role.role}
@@ -125,7 +135,7 @@ export default function Page() {
                     ))}
                   </ul>
                 </div>
-                <div className="flex-item-right">{role.period}</div>
+                <div className="flex-item-right">{formatPeriod(role.start, role.end)}</div>
               </div>
           ))}
         </div>
@@ -135,7 +145,7 @@ export default function Page() {
         <h2 className="section-title">Projects</h2>
           <div className="space-y-6">
             {projects.map((project) => (
-              <div className="flex justify-between" key={`${project.name}-${project.period}`}>
+              <div className="flex justify-between" key={project.name}>
                 <div className="flex-item-left">
                   <h3 className="text-base font-semibold mb-1">{project.name}</h3>
                   <p className="mt-1">{project.stack}</p>
@@ -162,7 +172,7 @@ export default function Page() {
                     ) : null}
                   </ul>
                 </div>
-                <div className="flex-item-right">{project.period}</div>
+                <div className="flex-item-right">{formatPeriod(project.start, project.end)}</div>
               </div>
             ))}
           </div>
