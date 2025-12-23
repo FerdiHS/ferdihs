@@ -1,0 +1,186 @@
+{
+  "contact": {
+    "name": "Ferdinand Halim Santoso",
+    "linkedin": {
+      "url": "https://linkedin.com/in/ferdihs",
+      "label": "linkedin.com/in/ferdihs"
+    },
+    "github": {
+      "url": "https://github.com/FerdiHS",
+      "label": "github.com/FerdiHS"
+    }
+  },
+  "education": {
+    "institution": "National University of Singapore",
+    "degree": "B.Comp in Computer Science",
+    "relevantCourses": [
+      "Software Engineering",
+      "Operating Systems",
+      "Database",
+      "Parallel Computing",
+      "Machine Learning",
+      "Artifical Intelligence"
+    ],
+    "start": "Aug 2022",
+    "end": "May 2026"
+  },
+  "experience": [
+    {
+      "company": "Pinnacle Investment Indonesia",
+      "role": "Quant Dev Intern",
+      "start": "Jun 2025",
+      "end": "Aug 2025",
+      "bullets": [
+        "Cut backtest wall-time by 70% via parallelization (joblib, multiprocessing) and generalize the backtest engine to support diverse strategies via pluggable Signal/Risk/Execution interfaces.",
+        "Co-designed event-driven alpha with 5% CAGR in 3-years walk-forward backtests (Indonesian Market / IDX).",
+        "Built a WebSocket market-data aggregator to compute streaming research statistics.",
+        "Ingested multi-format PDF tables with off-the-shelf parsers and standardized them into clean, join-ready datasets."
+      ]
+    },
+    {
+      "company": "GIC",
+      "role": "Software Engineer Intern",
+      "start": "May 2024",
+      "end": "Jan 2025",
+      "bullets": [
+        "Designed and implemented a distributed database query system for 200+ consumers.",
+        "Developed an asynchronous application using FastAPI with a custom request queuing mechanism.",
+        "Built Tableau Workbook Auto Deployment process with GitHub Actions for 500+ users.",
+        "Automated database configuration updates with GitHub Action workflows.",
+        "Created Tableau Web Data Connector for advanced data analysis and reporting."
+      ]
+    },
+    {
+      "company": "PINUS",
+      "role": "Co-Director of Tech Division",
+      "start": "Aug 2023",
+      "end": "Jul 2024",
+      "bullets": [
+        "Led a team to build \"PINUS STUDY,\" a forum for 100+ Indonesian NUS students.",
+        "Organized 3 workshops on Web Development, GitHub, and SQL for 30+ participants.",
+        "Guided juniors in developing a link shortener project."
+      ]
+    },
+    {
+      "company": "NUS",
+      "role": "Grader and Proctor",
+      "start": "Aug 2023",
+      "end": "Dec 2023",
+      "bullets": [
+        "Graded 150+ assignments and exams for CS1010E, ensuring accuracy and consistency.",
+        "Proctored exams for 100+ students, maintaining academic integrity."
+      ]
+    },
+    {
+      "company": "Tongdun Technology",
+      "role": "Software Engineering Intern",
+      "start": "Jun 2022",
+      "end": "Jun 2022",
+      "bullets": [
+        "Collaborated on data cleansing and feature engineering for predictive models.",
+        "Assisted in developing credit scoring and risk management models."
+      ]
+    },
+    {
+      "company": "Central Java Education Department",
+      "role": "Mathematics Olympiad Trainer",
+      "start": "Oct 2021",
+      "end": "Nov 2021",
+      "bullets": [
+        "Trained the Central Java Math Olympiad Team, achieving 2 silver and 2 bronze medals."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "PINUS STUDY",
+      "stack": "TypeScript, HTML/CSS, Go, React, NUSMODS API",
+      "start": "Dec 2023",
+      "end": "Jul 2024",
+      "bullets": [
+        "Led a team to build a forum for Indonesian NUS undergrads, with 100+ users collaborating on coursework.",
+        "Optimized database performance with advanced SQL procedures, reducing query time by more than 50%.",
+        "Designed and built backend features such as email verification, bookmarking, and password recovery.",
+        "Created a custom automation script for DB initialization, reducing setup time significantly."
+      ],
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://www.pinusstudy.com/"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/pinus-tech"
+        }
+      ]
+    },
+    {
+      "name": "Footycouch",
+      "stack": "JavaScript, HTML/CSS, NodeJS, React, ExpressJS, FPL API",
+      "start": "May 2023",
+      "end": "Aug 2023",
+      "bullets": [
+        "Co-developed a fantasy football platform with social media features.",
+        "Deployed a backend using NodeJS/ExpressJS with a MySQL DB.",
+        "Integrated the FPL API, automating real-time data updates for a seamless UX."
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/FerdiHS/footycouch"
+        }
+      ]
+    }
+  ],
+  "skills": {
+    "programmingLanguages": [
+      "C++",
+      "Java",
+      "JavaScript",
+      "TypeScript",
+      "SQL",
+      "Python",
+      "Go",
+      "HTML",
+      "CSS"
+    ],
+    "frameworks": [
+      "React",
+      "NodeJS",
+      "ExpressJS",
+      "JUnit",
+      "Docker",
+      "GitHub Actions"
+    ]
+  },
+  "awards": [
+    {
+      "text": "Rated 1746 in",
+      "link": {
+        "label": "Codeforces",
+        "url": "https://codeforces.com/profile/FerdiHS"
+      },
+      "suffix": "(Top 4% in Indonesia)"
+    },
+    {
+      "text": "Silver Medal in Indonesia National Science Olympiad",
+      "location": "Indonesia",
+      "time": "Oct 2020"
+    },
+    {
+      "text": "Bronze Medal in Asian-Pacific Mathematical Olympiad",
+      "location": "Indonesia",
+      "time": "Mar 2020"
+    },
+    {
+      "text": "Bronze Medal in Iranian Geometry Olympiad",
+      "location": "Indonesia",
+      "time": "Sep 2019"
+    },
+    {
+      "text": "Silver Medal in Indonesia National Science Olympiad",
+      "location": "Indonesia",
+      "time": "Jul 2019"
+    }
+  ]
+}
