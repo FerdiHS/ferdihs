@@ -1,7 +1,7 @@
 <h1 align="center">Hi, I’m Ferdi 👋</h1>
 
 <p align="center">
-  CS @ National University of Singapore • Builder • Systems / Data / ML-ish
+  CS @ National University of Singapore • Builder • Systems / Data / ML
 </p>
 
 <p align="center">
