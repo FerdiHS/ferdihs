@@ -93,6 +93,27 @@
   ],
   "projects": [
     {
+      "name": "Artium",
+      "stack": "Go, Next.js, PostgreSQL, Docker, GitHub Actions, Cloudflare R2",
+      "start": "Jan 2026",
+      "end": "Feb 2026",
+      "bullets": [
+        "Built auction app with Go + Postgres + Next.js, including listings, lifecycle (draft-active-ended), and bidding.",
+        "Added image uploads via Cloudflare R2 signed URLs (direct client upload, backend-controlled access).",
+        "Dockerized backend + DB; CI/CD with GitHub Actions to deploy on GCE; frontend on Vercel."
+      ],
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://artium-indol.vercel.app/"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/freebies-warrior/artium"
+        }
+      ]
+    },
+    {
       "name": "PINUS STUDY",
       "stack": "TypeScript, HTML/CSS, Go, React, NUSMODS API",
       "start": "Dec 2023",
