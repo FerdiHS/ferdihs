@@ -10,6 +10,19 @@
       "label": "github.com/FerdiHS"
     }
   },
+  "homepage": {
+    "headline": "Building reliable systems across investing, data, and developer workflows.",
+    "summary": "Computer Science student at the National University of Singapore with internship experience spanning quantitative development, backend systems, and automation.",
+    "highlights": [
+      "B.Comp in Computer Science @ National University of Singapore",
+      "Codeforces Top 4% in Indonesia",
+      "Go · TypeScript · Python"
+    ],
+    "featuredProjects": [
+      "Artium",
+      "PINUS STUDY"
+    ]
+  },
   "education": {
     "institution": "National University of Singapore",
     "degree": "B.Comp in Computer Science",

@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Ferdinand Halim Santoso",
-  description: "Ferdinand Halim Santoso's personal website",
+  description: "Portfolio of Ferdinand Halim Santoso, focused on systems, data, and software engineering.",
 };
 
 export default function RootLayout({
@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="antialiased">
         {children}
       </body>
     </html>
