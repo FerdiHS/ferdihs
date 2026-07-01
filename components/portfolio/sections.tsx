@@ -151,45 +151,51 @@ export function ProjectsSection({
 }
 
 export function SkillsSection({ skills }: SkillsSectionProps) {
-  const formatValues = (values: string[]) => values.map((value) => `"${value}"`).join(", ");
-
-  const skillRows = [
-    ["languages", formatValues(skills.programmingLanguages)],
-    ["frameworks", formatValues(skills.frameworks)],
+  const skillGroups = [
+    {
+      label: "Programming Languages",
+      items: skills.programmingLanguages,
+    },
+    {
+      label: "Frameworks & Tooling",
+      items: skills.frameworks,
+    },
   ];
 
   return (
     <section id="skills" className="space-y-8">
       <SectionHeading index="03" title="Skills" />
 
-      <div className="portfolio-surface rounded-3xl p-6 sm:p-8">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
-          <div className="overflow-x-auto rounded-2xl border border-[var(--portfolio-border-strong)] bg-[var(--portfolio-surface-strong)] p-5">
-            <div className="portfolio-mono space-y-4 text-sm leading-7 text-[var(--portfolio-muted)]">
-              {skillRows.map(([label, value], index) => (
-                <div key={label} className="grid grid-cols-[48px_104px_minmax(0,1fr)] gap-3">
-                  <span className="text-[var(--portfolio-muted)]">{String(index + 1).padStart(2, "0")}</span>
-                  <span className="text-[var(--portfolio-accent)]">{label}:</span>
-                  <span className="whitespace-pre-wrap text-white">[{value}]</span>
-                </div>
+      <div className="grid gap-5 lg:grid-cols-2">
+        {skillGroups.map((group, index) => (
+          <article
+            key={group.label}
+            className="portfolio-surface rounded-3xl p-6 sm:p-7"
+          >
+            <div className="flex items-center justify-between gap-4 border-b pb-5 portfolio-divider">
+              <div>
+                <p className="portfolio-mono text-sm text-[var(--portfolio-accent)]">
+                  {String(index + 1).padStart(2, "0")}.
+                </p>
+                <h3 className="mt-2 text-2xl font-medium text-white">{group.label}</h3>
+              </div>
+              <span className="portfolio-mono text-xs text-[var(--portfolio-muted)]">
+                {group.items.length} items
+              </span>
+            </div>
+
+            <div className="mt-5 flex flex-wrap gap-3">
+              {group.items.map((item) => (
+                <span
+                  key={item}
+                  className="portfolio-mono rounded-full border border-[var(--portfolio-border-strong)] bg-[var(--portfolio-surface-strong)] px-4 py-2 text-sm text-white"
+                >
+                  {item}
+                </span>
               ))}
             </div>
-          </div>
-
-          <div className="flex flex-col justify-between rounded-2xl border border-[var(--portfolio-border-strong)] bg-[var(--portfolio-surface-strong)] p-6">
-            <div>
-              <p className="portfolio-mono text-sm text-[var(--portfolio-accent)]">What I optimize for</p>
-              <div className="mt-5 space-y-4 text-base leading-7 text-[var(--portfolio-muted)]">
-                <p>Readable code, clear interfaces, and systems that behave well under real constraints.</p>
-                <p>Comfortable working across backend services, data workflows, and developer-facing tooling.</p>
-              </div>
-            </div>
-
-            <p className="portfolio-mono mt-8 text-sm text-[var(--portfolio-accent)]">
-              Reliable systems, strong ownership, thoughtful collaboration.
-            </p>
-          </div>
-        </div>
+          </article>
+        ))}
       </div>
     </section>
   );
