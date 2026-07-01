@@ -185,6 +185,43 @@
       "JUnit",
       "Docker",
       "GitHub Actions"
+    ],
+    "groups": [
+      {
+        "label": "Languages",
+        "items": [
+          "Go",
+          "Python",
+          "TypeScript",
+          "SQL",
+          "Java",
+          "C++",
+          "JavaScript"
+        ]
+      },
+      {
+        "label": "Backend Systems",
+        "items": [
+          "NodeJS",
+          "ExpressJS"
+        ]
+      },
+      {
+        "label": "Frontend",
+        "items": [
+          "React",
+          "HTML",
+          "CSS"
+        ]
+      },
+      {
+        "label": "Tooling & Delivery",
+        "items": [
+          "Docker",
+          "GitHub Actions",
+          "JUnit"
+        ]
+      }
     ]
   },
   "awards": [

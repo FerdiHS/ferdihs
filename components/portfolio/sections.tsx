@@ -6,7 +6,7 @@ import {
 } from "@/components/portfolio/icons";
 import { SectionHeading } from "@/components/portfolio/SectionHeading";
 import type { Award, Education, Experience, Project, Skills } from "@/lib/profile";
-import { formatPeriod } from "@/lib/profile";
+import { formatPeriod, getSkillGroups } from "@/lib/profile";
 
 type ExperienceSectionProps = {
   experience: Experience[];
@@ -151,33 +151,24 @@ export function ProjectsSection({
 }
 
 export function SkillsSection({ skills }: SkillsSectionProps) {
-  const skillGroups = [
-    {
-      label: "Programming Languages",
-      items: skills.programmingLanguages,
-    },
-    {
-      label: "Frameworks & Tooling",
-      items: skills.frameworks,
-    },
-  ];
+  const skillGroups = getSkillGroups(skills);
 
   return (
     <section id="skills" className="space-y-8">
       <SectionHeading index="03" title="Skills" />
 
-      <div className="grid gap-5 lg:grid-cols-2">
+      <div className="grid gap-5 md:grid-cols-2">
         {skillGroups.map((group, index) => (
           <article
             key={group.label}
-            className="portfolio-surface rounded-3xl p-6 sm:p-7"
+            className="portfolio-surface flex h-full flex-col rounded-3xl p-6 sm:p-7"
           >
             <div className="flex items-center justify-between gap-4 border-b pb-5 portfolio-divider">
               <div>
                 <p className="portfolio-mono text-sm text-[var(--portfolio-accent)]">
                   {String(index + 1).padStart(2, "0")}.
                 </p>
-                <h3 className="mt-2 text-2xl font-medium text-white">{group.label}</h3>
+                <h3 className="mt-2 text-xl font-medium text-white sm:text-2xl">{group.label}</h3>
               </div>
               <span className="portfolio-mono text-xs text-[var(--portfolio-muted)]">
                 {group.items.length} items

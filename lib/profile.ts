@@ -37,9 +37,15 @@ export type Project = {
   links?: Link[];
 };
 
+export type SkillGroup = {
+  label: string;
+  items: string[];
+};
+
 export type Skills = {
   programmingLanguages: string[];
   frameworks: string[];
+  groups?: SkillGroup[];
 };
 
 export type Award = {
@@ -122,6 +128,41 @@ export const getHeroHighlights = (data: ResumeData) => {
     formatAwardSummary(data.awards[0]),
     data.skills.programmingLanguages.slice(0, 3).join(" · "),
   ].filter(Boolean);
+};
+
+const sanitizeSkillGroup = (group: SkillGroup): SkillGroup | null => {
+  const label = group.label.trim();
+  const items = group.items.map((item) => item.trim()).filter(Boolean);
+
+  if (!label || items.length === 0) {
+    return null;
+  }
+
+  return { label, items };
+};
+
+export const getSkillGroups = (skills: Skills) => {
+  const configuredGroups =
+    skills.groups
+      ?.map(sanitizeSkillGroup)
+      .filter((group): group is SkillGroup => Boolean(group)) ?? [];
+
+  if (configuredGroups.length > 0) {
+    return configuredGroups;
+  }
+
+  return [
+    {
+      label: "Programming Languages",
+      items: skills.programmingLanguages,
+    },
+    {
+      label: "Frameworks & Tooling",
+      items: skills.frameworks,
+    },
+  ]
+    .map(sanitizeSkillGroup)
+    .filter((group): group is SkillGroup => Boolean(group));
 };
 
 export const getHeroCopy = (data: ResumeData) => {
