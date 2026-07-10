@@ -19,8 +19,8 @@
       "Go · TypeScript · Python"
     ],
     "featuredProjects": [
-      "Artium",
-      "PINUS STUDY"
+      "Octostate",
+      "Artium"
     ]
   },
   "education": {
@@ -105,6 +105,23 @@
     }
   ],
   "projects": [
+    {
+      "name": "Octostate",
+      "stack": "Go, GitHub API, GitOps, CLI, GitHub Actions",
+      "start": "May 2026",
+      "end": "May 2026",
+      "bullets": [
+        "Built a Go CLI to manage GitHub organization state declaratively across repositories, teams, users, topics, and organization settings.",
+        "Implemented config-driven validation, sync, plan/apply, audit, and drift-detection workflows.",
+        "Added GitHub Actions support to run repository state checks and automation workflows from version-controlled configuration."
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/orang-gaboets/octostate"
+        }
+      ]
+    },
     {
       "name": "Artium",
       "stack": "Go, Next.js, PostgreSQL, Docker, GitHub Actions, Cloudflare R2",
