@@ -11,31 +11,31 @@
     }
   },
   "homepage": {
-    "headline": "Building reliable systems across investing, data, and developer workflows.",
-    "summary": "Computer Science student at the National University of Singapore with internship experience spanning quantitative development, backend systems, and automation.",
+    "headline": "Building reliable systems across quantitative research, backend systems, and developer workflows.",
+    "summary": "Computer Science student at the National University of Singapore, pursuing a second major in Mathematics, with internship experience spanning quantitative development, backend systems, and automation.",
     "highlights": [
-      "B.Comp in Computer Science @ National University of Singapore",
-      "Codeforces Top 4% in Indonesia",
+      "B.Comp in Computer Science; Second Major in Mathematics @ National University of Singapore",
+      "Codeforces 1808 (Indonesia Top 2.5%)",
       "Go · TypeScript · Python"
     ],
     "featuredProjects": [
-      "Octostate",
-      "Artium"
+      "Concurrent Limit Order Matching Engines",
+      "Octostate"
     ]
   },
   "education": {
     "institution": "National University of Singapore",
-    "degree": "B.Comp in Computer Science",
+    "degree": "B.Comp in Computer Science; Second Major in Mathematics",
     "relevantCourses": [
       "Software Engineering",
       "Operating Systems",
       "Database",
       "Parallel Computing",
       "Machine Learning",
-      "Artifical Intelligence"
+      "Artificial Intelligence"
     ],
     "start": "Aug 2022",
-    "end": "May 2026"
+    "end": "Jul 2026"
   },
   "experience": [
     {
@@ -105,6 +105,16 @@
     }
   ],
   "projects": [
+    {
+      "name": "Concurrent Limit Order Matching Engines",
+      "stack": "C++20, Go, Unix Sockets",
+      "start": "Mar 2025",
+      "bullets": [
+        "Built concurrent C++20 and Go limit-order matching engines supporting Unix-socket client ingestion, per-instrument order books, buy/sell/cancel commands, and add/execute/cancel output semantics.",
+        "Implemented price-time priority matching with FIFO tie-breaking, partial/full fills, multi-order execution, residual booking, resting-price trades, and execution IDs.",
+        "Designed concurrent order processing using per-instrument sharding, fine-grained synchronization in C++, and goroutine/channel-based routing in Go; verified correctness with grader fixtures and multi-client stress inputs."
+      ]
+    },
     {
       "name": "Octostate",
       "stack": "Go, GitHub API, GitOps, CLI, GitHub Actions",
@@ -243,12 +253,12 @@
   },
   "awards": [
     {
-      "text": "Rated 1805 in",
+      "text": "Rated 1808 in",
       "link": {
         "label": "Codeforces",
         "url": "https://codeforces.com/profile/FerdiHS"
       },
-      "suffix": "(Top 4% in Indonesia)"
+      "suffix": "(Indonesia Top 2.5%)"
     },
     {
       "text": "Silver Medal in Indonesia National Science Olympiad",
