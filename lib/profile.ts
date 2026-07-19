@@ -174,6 +174,6 @@ export const getHeroCopy = (data: ResumeData) => {
       "Building reliable systems across investing, data, and developer workflows.",
     summary:
       data.homepage?.summary ??
-      `${latestRole.role} experience at ${latestRole.company}, paired with ${data.education.degree} training at ${data.education.institution}. Comfortable moving between quantitative research, backend systems, and automation.`,
+      `${latestRole.role} experience at ${latestRole.company}, paired with ${data.education.degree} from ${data.education.institution}. Comfortable moving between quantitative research, backend systems, and automation.`,
   };
 };
