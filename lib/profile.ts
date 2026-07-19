@@ -97,18 +97,39 @@ export const getFeaturedProjects = (data: ResumeData) => {
   const configuredProjects =
     data.homepage?.featuredProjects?.map((name) => name.trim()).filter(Boolean) ?? [];
 
-  if (configuredProjects.length === 0) {
-    return data.projects.slice(0, 2);
+  const byName = new Map(data.projects.map((project) => [project.name, project]));
+  const featuredProjects: Project[] = [];
+  const featuredProjectNames = new Set<string>();
+
+  for (const projectName of configuredProjects) {
+    const project = byName.get(projectName);
+
+    if (!project || featuredProjectNames.has(project.name)) {
+      continue;
+    }
+
+    featuredProjects.push(project);
+    featuredProjectNames.add(project.name);
+
+    if (featuredProjects.length === 2) {
+      return featuredProjects;
+    }
   }
 
-  const byName = new Map(data.projects.map((project) => [project.name, project]));
+  for (const project of data.projects) {
+    if (featuredProjectNames.has(project.name)) {
+      continue;
+    }
 
-  const matchedProjects = configuredProjects
-    .map((name) => byName.get(name))
-    .filter((project): project is Project => Boolean(project))
-    .slice(0, 2);
+    featuredProjects.push(project);
+    featuredProjectNames.add(project.name);
 
-  return matchedProjects.length > 0 ? matchedProjects : data.projects.slice(0, 2);
+    if (featuredProjects.length === 2) {
+      break;
+    }
+  }
+
+  return featuredProjects;
 };
 
 const formatAwardSummary = (award?: Award) => {
