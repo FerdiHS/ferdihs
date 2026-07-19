@@ -36,6 +36,7 @@ export type Project = {
   end?: string;
   bullets: string[];
   links?: Link[];
+  current?: boolean;
 };
 
 export type SkillGroup = {
@@ -80,8 +81,10 @@ export const loadResumeData = (): ResumeData => {
   return JSON.parse(jsonContent) as ResumeData;
 };
 
-export const formatPeriod = (start?: string, end?: string) => {
+export const formatPeriod = (start?: string, end?: string, current = false) => {
   if (!start && !end) return "";
+  if (current && start) return `${start} – now`;
+  if (current) return "now";
   if (!start) return end ?? "";
   if (!end || start === end) return start;
   return `${start} – ${end}`;

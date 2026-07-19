@@ -119,7 +119,7 @@
       "name": "Octostate",
       "stack": "Go, GitHub API, GitOps, CLI, GitHub Actions",
       "start": "May 2026",
-      "end": "May 2026",
+      "current": true,
       "bullets": [
         "Built a Go CLI to manage GitHub organization state declaratively across repositories, teams, users, topics, and organization settings.",
         "Implemented config-driven validation, sync, plan/apply, audit, and drift-detection workflows.",

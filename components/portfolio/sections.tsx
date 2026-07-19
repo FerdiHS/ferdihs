@@ -41,7 +41,7 @@ export function ExperienceSection({ experience }: ExperienceSectionProps) {
         {experience.map((role) => (
           <article key={`${role.company}-${role.role}`} className="grid gap-4 py-7 md:grid-cols-[140px_24px_minmax(0,1fr)]">
             <div className="portfolio-mono text-sm leading-7 text-[var(--portfolio-muted)]">
-              {formatPeriod(role.start, role.end)}
+              {formatPeriod(role.start, role.end, role.current)}
             </div>
 
             <div className="relative hidden md:flex justify-center">
@@ -114,7 +114,7 @@ export function ProjectsSection({
                     </p>
                   </div>
                   <span className="portfolio-mono text-xs text-[var(--portfolio-muted)]">
-                    {formatPeriod(project.start, project.end)}
+                    {formatPeriod(project.start, project.end, project.current)}
                   </span>
                 </div>
 
