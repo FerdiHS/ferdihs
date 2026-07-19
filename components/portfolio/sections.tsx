@@ -228,14 +228,12 @@ export function AwardsSection({ awards }: AwardsSectionProps) {
 
       <div className="space-y-2">
         {awards.map((award, index) => (
-          <article key={`${award.text}-${index}`} className="grid gap-4 py-6 md:grid-cols-[140px_24px_minmax(0,1fr)]">
+          <article
+            key={`${award.text}-${index}`}
+            className="grid gap-4 py-6 md:grid-cols-[140px_minmax(0,1fr)]"
+          >
             <div className="portfolio-mono text-sm leading-7 text-[var(--portfolio-muted)]">
               {award.time ?? "Highlight"}
-            </div>
-
-            <div className="relative hidden md:flex justify-center">
-              <span className="absolute inset-y-0 w-px bg-[var(--portfolio-border)]" />
-              <span className="relative mt-2 h-3 w-3 rounded-full bg-[var(--portfolio-accent)] shadow-[0_0_0_6px_rgba(74,126,255,0.08)]" />
             </div>
 
             <div className="border-b pb-6 portfolio-divider">
@@ -260,9 +258,9 @@ export function AwardsSection({ awards }: AwardsSectionProps) {
                   </p>
                 </div>
 
-                {(award.location || award.time) && (
+                {award.location && (
                   <span className="portfolio-mono text-xs text-[var(--portfolio-muted)]">
-                    {[award.location, award.time].filter(Boolean).join(" · ")}
+                    {award.location}
                   </span>
                 )}
               </div>
