@@ -7,10 +7,10 @@ import {
   SkillsSection,
 } from "@/components/portfolio/sections";
 import {
-  getCurrentExperience,
   getFeaturedProjects,
   getHeroCopy,
   getHeroHighlights,
+  getHeroExperience,
   loadResumeData,
 } from "@/lib/profile";
 
@@ -25,7 +25,7 @@ export default function Page() {
   ];
   const heroCopy = getHeroCopy(resumeData);
   const heroHighlights = getHeroHighlights(resumeData);
-  const currentExperience = getCurrentExperience(experience);
+  const heroExperience = getHeroExperience(experience);
 
   return (
     <div className="min-h-screen text-[var(--portfolio-text)]">
@@ -35,7 +35,7 @@ export default function Page() {
           headline={heroCopy.headline}
           summary={heroCopy.summary}
           highlights={heroHighlights}
-          currentExperience={currentExperience}
+          heroExperience={heroExperience}
           featuredProjects={featuredProjects}
         />
 

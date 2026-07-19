@@ -26,6 +26,7 @@ export type Experience = {
   start?: string;
   end?: string;
   bullets: string[];
+  current?: boolean;
 };
 
 export type Project = {
@@ -86,7 +87,8 @@ export const formatPeriod = (start?: string, end?: string) => {
   return `${start} – ${end}`;
 };
 
-export const getCurrentExperience = (experience: Experience[]) => experience[0];
+export const getHeroExperience = (experience: Experience[]) =>
+  experience.find((item) => item.current) ?? experience[0];
 
 export const getFeaturedProjects = (data: ResumeData) => {
   const configuredProjects =
@@ -166,7 +168,7 @@ export const getSkillGroups = (skills: Skills) => {
 };
 
 export const getHeroCopy = (data: ResumeData) => {
-  const latestRole = getCurrentExperience(data.experience);
+  const heroExperience = getHeroExperience(data.experience);
 
   return {
     headline:
@@ -174,6 +176,8 @@ export const getHeroCopy = (data: ResumeData) => {
       "Building reliable systems across investing, data, and developer workflows.",
     summary:
       data.homepage?.summary ??
-      `${latestRole.role} experience at ${latestRole.company}, paired with ${data.education.degree} from ${data.education.institution}. Comfortable moving between quantitative research, backend systems, and automation.`,
+      (heroExperience
+        ? `${heroExperience.role} experience at ${heroExperience.company}, paired with ${data.education.degree} from ${data.education.institution}. Comfortable moving between quantitative research, backend systems, and automation.`
+        : `${data.education.degree} from ${data.education.institution}. Comfortable moving between quantitative research, backend systems, and automation.`),
   };
 };

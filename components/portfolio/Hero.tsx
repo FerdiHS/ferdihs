@@ -14,7 +14,7 @@ type HeroProps = {
   headline: string;
   summary: string;
   highlights: string[];
-  currentExperience?: Experience;
+  heroExperience?: Experience;
   featuredProjects: Project[];
 };
 
@@ -35,10 +35,11 @@ export function Hero({
   headline,
   summary,
   highlights,
-  currentExperience,
+  heroExperience,
   featuredProjects,
 }: HeroProps) {
   const { firstName, remainingName } = splitName(contact.name);
+  const experienceLabel = heroExperience?.current ? "CURRENT ROLE" : "LATEST ROLE";
 
   return (
     <section className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start">
@@ -89,12 +90,14 @@ export function Hero({
       </div>
 
       <div className="space-y-4">
-        {currentExperience ? (
+        {heroExperience ? (
           <article className="portfolio-surface rounded-3xl p-6">
             <div className="flex items-center justify-between gap-4 border-b pb-5 portfolio-divider">
-              <span className="portfolio-mono text-sm text-[var(--portfolio-accent)]">LATEST ROLE</span>
+              <span className="portfolio-mono text-sm text-[var(--portfolio-accent)]">
+                {experienceLabel}
+              </span>
               <span className="portfolio-mono text-xs text-[var(--portfolio-muted)]">
-                /experience/current
+                {heroExperience.current ? "/experience/current" : "/experience/latest"}
               </span>
             </div>
 
@@ -103,13 +106,13 @@ export function Hero({
                 <BriefcaseIcon className="h-7 w-7" />
               </div>
               <div className="min-w-0">
-                <p className="text-3xl font-medium leading-tight text-white">{currentExperience.role}</p>
-                <p className="mt-1 text-xl text-[var(--portfolio-accent)]">{currentExperience.company}</p>
+                <p className="text-3xl font-medium leading-tight text-white">{heroExperience.role}</p>
+                <p className="mt-1 text-xl text-[var(--portfolio-accent)]">{heroExperience.company}</p>
               </div>
             </div>
 
             <ul className="mt-6 space-y-4">
-              {currentExperience.bullets.slice(0, 2).map((bullet) => (
+              {heroExperience.bullets.slice(0, 2).map((bullet) => (
                 <li key={bullet} className="flex gap-3 text-base leading-7 text-[var(--portfolio-muted)]">
                   <span className="mt-3 h-2 w-2 flex-shrink-0 rounded-full bg-[var(--portfolio-accent)]" />
                   <span>{bullet}</span>
