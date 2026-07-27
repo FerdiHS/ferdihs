@@ -13,11 +13,6 @@
   "homepage": {
     "headline": "Building reliable systems across quantitative research, backend systems, and developer workflows.",
     "summary": "Computer Science graduate from the National University of Singapore with a second major in Mathematics, and internship experience spanning quantitative development, backend systems, and automation.",
-    "highlights": [
-      "B.Comp in Computer Science; Second Major in Mathematics @ National University of Singapore",
-      "Codeforces 1808 (Indonesia Top 2.5%)",
-      "Go · TypeScript · Python"
-    ],
     "featuredProjects": [
       "Octostate",
       "Artium"
@@ -44,8 +39,8 @@
       "start": "Jun 2025",
       "end": "Aug 2025",
       "bullets": [
-        "Cut backtest wall-time by 70% via parallelization (joblib, multiprocessing) and generalize the backtest engine to support diverse strategies via pluggable Signal/Risk/Execution interfaces.",
-        "Co-designed event-driven alpha with 5% CAGR in 3-years walk-forward backtests (Indonesian Market / IDX).",
+        "Cut backtest wall-time by 70% via parallelization (joblib, multiprocessing) and generalized the backtest engine to support diverse strategies via pluggable Signal/Risk/Execution interfaces.",
+        "Co-designed event-driven alpha with 5% CAGR in 3-year walk-forward backtests (Indonesian Market / IDX).",
         "Built a WebSocket market-data aggregator to compute streaming research statistics.",
         "Ingested multi-format PDF tables with off-the-shelf parsers and standardized them into clean, join-ready datasets."
       ]
@@ -284,7 +279,7 @@
         "label": "Codeforces",
         "url": "https://codeforces.com/profile/FerdiHS"
       },
-      "suffix": "(Indonesia Top 2.5%)"
+      "suffix": "(Top 2.5% in Indonesia)"
     },
     {
       "text": "Silver Medal in Indonesia National Science Olympiad",
