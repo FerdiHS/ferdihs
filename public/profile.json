@@ -10,19 +10,27 @@
       "label": "github.com/FerdiHS"
     }
   },
+  "homepage": {
+    "headline": "Building reliable systems across quantitative research, backend systems, and developer workflows.",
+    "summary": "Computer Science graduate from the National University of Singapore with a second major in Mathematics, and internship experience spanning quantitative development, backend systems, and automation.",
+    "featuredProjects": [
+      "Octostate",
+      "Artium"
+    ]
+  },
   "education": {
     "institution": "National University of Singapore",
-    "degree": "B.Comp in Computer Science",
+    "degree": "B.Comp in Computer Science; Second Major in Mathematics",
     "relevantCourses": [
       "Software Engineering",
       "Operating Systems",
       "Database",
       "Parallel Computing",
       "Machine Learning",
-      "Artifical Intelligence"
+      "Artificial Intelligence"
     ],
     "start": "Aug 2022",
-    "end": "May 2026"
+    "end": "Jul 2026"
   },
   "experience": [
     {
@@ -31,8 +39,8 @@
       "start": "Jun 2025",
       "end": "Aug 2025",
       "bullets": [
-        "Cut backtest wall-time by 70% via parallelization (joblib, multiprocessing) and generalize the backtest engine to support diverse strategies via pluggable Signal/Risk/Execution interfaces.",
-        "Co-designed event-driven alpha with 5% CAGR in 3-years walk-forward backtests (Indonesian Market / IDX).",
+        "Cut backtest wall-time by 70% via parallelization (joblib, multiprocessing) and generalized the backtest engine to support diverse strategies via pluggable Signal/Risk/Execution interfaces.",
+        "Co-designed event-driven alpha with 5% CAGR in 3-year walk-forward backtests (Indonesian Market / IDX).",
         "Built a WebSocket market-data aggregator to compute streaming research statistics.",
         "Ingested multi-format PDF tables with off-the-shelf parsers and standardized them into clean, join-ready datasets."
       ]
@@ -92,6 +100,59 @@
     }
   ],
   "projects": [
+    {
+      "name": "Concurrent Limit Order Matching Engines",
+      "stack": "C++20, Go, Unix Sockets",
+      "start": "Mar 2025",
+      "bullets": [
+        "Built concurrent C++20 and Go limit-order matching engines supporting Unix-socket client ingestion, per-instrument order books, buy/sell/cancel commands, and add/execute/cancel output semantics.",
+        "Implemented price-time priority matching with FIFO tie-breaking, partial/full fills, multi-order execution, residual booking, resting-price trades, and execution IDs.",
+        "Designed concurrent order processing using per-instrument sharding, fine-grained synchronization in C++, and goroutine/channel-based routing in Go; verified correctness with grader fixtures and multi-client stress inputs."
+      ]
+    },
+    {
+      "name": "NUANSA 2025",
+      "stack": "Next.js, TypeScript, Firebase, GitHub Actions, Vercel",
+      "start": "Sep 2024",
+      "end": "Sep 2025",
+      "bullets": [
+        "Built and improved the NUANSA public website and ticketing platform, covering config-driven pages, content updates, and admin workflows.",
+        "Shipped CI/CD with GitHub Actions and Vercel to automate tests and preview/live deployments.",
+        "Hardened ticket reservation reliability with transaction-based concurrency handling and seat-isolation checks to prevent double-booking.",
+        "Implemented customer creation, seat-based check-in, incremental caching, and login/email handling for the ticketing flow."
+      ],
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://www.nuansacp.org/"
+        },
+        {
+          "label": "Web Repo",
+          "url": "https://github.com/nuansacp2025/nuansa-web"
+        },
+        {
+          "label": "Ticketing Repo",
+          "url": "https://github.com/nuansacp2025/ticketing"
+        }
+      ]
+    },
+    {
+      "name": "Octostate",
+      "stack": "Go, GitHub API, GitOps, CLI, GitHub Actions",
+      "start": "May 2026",
+      "current": true,
+      "bullets": [
+        "Built a Go CLI to manage GitHub organization state declaratively across repositories, teams, users, topics, and organization settings.",
+        "Implemented config-driven validation, sync, plan/apply, audit, and drift-detection workflows.",
+        "Added GitHub Actions support to run repository state checks and automation workflows from version-controlled configuration."
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/orang-gaboets/octostate"
+        }
+      ]
+    },
     {
       "name": "Artium",
       "stack": "Go, Next.js, PostgreSQL, Docker, GitHub Actions, Cloudflare R2",
@@ -172,16 +233,53 @@
       "JUnit",
       "Docker",
       "GitHub Actions"
+    ],
+    "groups": [
+      {
+        "label": "Languages",
+        "items": [
+          "Go",
+          "Python",
+          "TypeScript",
+          "SQL",
+          "Java",
+          "C++",
+          "JavaScript"
+        ]
+      },
+      {
+        "label": "Backend Systems",
+        "items": [
+          "NodeJS",
+          "ExpressJS"
+        ]
+      },
+      {
+        "label": "Frontend",
+        "items": [
+          "React",
+          "HTML",
+          "CSS"
+        ]
+      },
+      {
+        "label": "Tooling & Delivery",
+        "items": [
+          "Docker",
+          "GitHub Actions",
+          "JUnit"
+        ]
+      }
     ]
   },
   "awards": [
     {
-      "text": "Rated 1805 in",
+      "text": "Rated 1808 in",
       "link": {
         "label": "Codeforces",
         "url": "https://codeforces.com/profile/FerdiHS"
       },
-      "suffix": "(Top 4% in Indonesia)"
+      "suffix": "(Top 2.5% in Indonesia)"
     },
     {
       "text": "Silver Medal in Indonesia National Science Olympiad",
