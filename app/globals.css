@@ -3,10 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #06101e;
   --foreground: #f4f7fb;
-  --portfolio-bg: #06101e;
-  --portfolio-bg-soft: rgba(19, 37, 63, 0.86);
   --portfolio-surface: rgba(9, 18, 31, 0.78);
   --portfolio-surface-soft: rgba(9, 18, 31, 0.44);
   --portfolio-surface-strong: rgba(13, 24, 41, 0.92);
