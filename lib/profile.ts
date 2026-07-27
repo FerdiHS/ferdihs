@@ -61,7 +61,6 @@ export type Award = {
 export type HomepageConfig = {
   headline?: string;
   summary?: string;
-  highlights?: string[];
   featuredProjects?: string[];
 };
 
@@ -91,45 +90,47 @@ export const formatPeriod = (start?: string, end?: string, current = false) => {
 };
 
 export const getHeroExperience = (experience: Experience[]) =>
-  experience.find((item) => item.current) ??
-  experience.reduce<Experience | undefined>((latest, item) => {
-    if (!latest) return item;
+  experience.find((item) => item.current) ?? experience[0];
 
-    const currentRank = Date.parse(item.end ?? item.start ?? "");
-    const latestRank = Date.parse(latest.end ?? latest.start ?? "");
+const formatAwardSummary = (award?: Award) => {
+  if (!award) return "";
 
-    return (
-      (Number.isNaN(currentRank) ? Number.NEGATIVE_INFINITY : currentRank) >
-      (Number.isNaN(latestRank) ? Number.NEGATIVE_INFINITY : latestRank)
-    )
-      ? item
-      : latest;
-  }, undefined);
+  const baseText = award.link ? `${award.text} ${award.link.label}` : award.text;
+  const suffix = award.suffix ? ` ${award.suffix}` : "";
+
+  return `${baseText}${suffix}`.trim();
+};
+
+export const getHeroHighlights = (data: ResumeData) =>
+  [
+    `${data.education.degree} @ ${data.education.institution}`,
+    formatAwardSummary(data.awards[0]),
+    data.skills.programmingLanguages.slice(0, 3).join(" · "),
+  ].filter(Boolean);
 
 export const getFeaturedProjects = (data: ResumeData) => {
   const configuredProjects =
     data.homepage?.featuredProjects?.map((name) => name.trim()).filter(Boolean) ?? [];
 
+  if (configuredProjects.length === 0) {
+    return data.projects.slice(0, 2);
+  }
+
   const byName = new Map(data.projects.map((project) => [project.name, project]));
+  const resolvedProjects = configuredProjects.map((projectName) => {
+    const project = byName.get(projectName);
+
+    if (!project) {
+      throw new Error(`Unknown featured project: ${projectName}`);
+    }
+
+    return project;
+  });
+
   const featuredProjects: Project[] = [];
   const featuredProjectNames = new Set<string>();
 
-  for (const projectName of configuredProjects) {
-    const project = byName.get(projectName);
-
-    if (!project || featuredProjectNames.has(project.name)) {
-      continue;
-    }
-
-    featuredProjects.push(project);
-    featuredProjectNames.add(project.name);
-
-    if (featuredProjects.length === 2) {
-      return featuredProjects;
-    }
-  }
-
-  for (const project of data.projects) {
+  for (const project of resolvedProjects) {
     if (featuredProjectNames.has(project.name)) {
       continue;
     }
