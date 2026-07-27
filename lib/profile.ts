@@ -101,20 +101,16 @@ export const getFeaturedProjects = (data: ResumeData) => {
   }
 
   const byName = new Map(data.projects.map((project) => [project.name, project]));
-  const resolvedProjects = configuredProjects.map((projectName) => {
+  const featuredProjects: Project[] = [];
+  const featuredProjectNames = new Set<string>();
+
+  for (const projectName of configuredProjects) {
     const project = byName.get(projectName);
 
     if (!project) {
       throw new Error(`Unknown featured project: ${projectName}`);
     }
 
-    return project;
-  });
-
-  const featuredProjects: Project[] = [];
-  const featuredProjectNames = new Set<string>();
-
-  for (const project of resolvedProjects) {
     if (featuredProjectNames.has(project.name)) {
       continue;
     }
