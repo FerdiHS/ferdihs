@@ -18,18 +18,6 @@ type HeroProps = {
   featuredProjects: Project[];
 };
 
-const splitName = (fullName: string) => {
-  const [firstName, ...rest] = fullName.split(" ");
-
-  return {
-    firstName,
-    remainingName: rest.join(" "),
-  };
-};
-
-const toProjectHref = (project: Project) =>
-  project.links?.[0]?.url ?? `#${project.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
-
 export function Hero({
   contact,
   headline,
@@ -38,7 +26,8 @@ export function Hero({
   heroExperience,
   featuredProjects,
 }: HeroProps) {
-  const { firstName, remainingName } = splitName(contact.name);
+  const [firstName, ...rest] = contact.name.split(" ");
+  const remainingName = rest.join(" ");
   const experienceLabel = heroExperience?.current ? "CURRENT ROLE" : "LATEST ROLE";
 
   return (
@@ -129,35 +118,39 @@ export function Hero({
           </div>
 
           <div className="mt-4 space-y-2">
-            {featuredProjects.map((project) => (
-              <a
-                key={project.name}
-                href={toProjectHref(project)}
-                target={project.links?.[0] ? "_blank" : undefined}
-                rel={project.links?.[0] ? "noopener noreferrer" : undefined}
-                className="group grid gap-4 rounded-2xl border border-transparent px-1 py-4 transition hover:border-[var(--portfolio-border-strong)]"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl border border-[var(--portfolio-border-strong)] bg-[var(--portfolio-surface-strong)] text-[var(--portfolio-accent)]">
-                    <CodeIcon className="h-7 w-7" />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <p className="text-2xl font-medium leading-tight text-white">{project.name}</p>
-                        <p className="mt-2 portfolio-mono text-sm text-[var(--portfolio-accent)]">
-                          {project.stack}
-                        </p>
-                      </div>
-                      <ChevronRightIcon className="mt-1 h-6 w-6 flex-shrink-0 text-[var(--portfolio-accent)] transition group-hover:translate-x-1" />
+            {featuredProjects.map((project) => {
+              const primaryLink = project.links?.[0];
+
+              return (
+                <a
+                  key={project.name}
+                  href={primaryLink?.url ?? `#${project.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                  target={primaryLink ? "_blank" : undefined}
+                  rel={primaryLink ? "noopener noreferrer" : undefined}
+                  className="group grid gap-4 rounded-2xl border border-transparent px-1 py-4 transition hover:border-[var(--portfolio-border-strong)]"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl border border-[var(--portfolio-border-strong)] bg-[var(--portfolio-surface-strong)] text-[var(--portfolio-accent)]">
+                      <CodeIcon className="h-7 w-7" />
                     </div>
-                    <p className="mt-3 text-base leading-7 text-[var(--portfolio-muted)]">
-                      {project.bullets[0]}
-                    </p>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-start justify-between gap-4">
+                        <div>
+                          <p className="text-2xl font-medium leading-tight text-white">{project.name}</p>
+                          <p className="mt-2 portfolio-mono text-sm text-[var(--portfolio-accent)]">
+                            {project.stack}
+                          </p>
+                        </div>
+                        <ChevronRightIcon className="mt-1 h-6 w-6 flex-shrink-0 text-[var(--portfolio-accent)] transition group-hover:translate-x-1" />
+                      </div>
+                      <p className="mt-3 text-base leading-7 text-[var(--portfolio-muted)]">
+                        {project.bullets[0]}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </a>
-            ))}
+                </a>
+              );
+            })}
           </div>
         </article>
 

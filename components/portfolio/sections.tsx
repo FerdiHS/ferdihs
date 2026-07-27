@@ -233,7 +233,7 @@ export function AwardsSection({ awards }: AwardsSectionProps) {
             className="grid gap-4 py-6 md:grid-cols-[140px_minmax(0,1fr)]"
           >
             <div className="portfolio-mono text-sm leading-7 text-[var(--portfolio-muted)]">
-              {award.time ?? "Highlight"}
+              {award.time ?? ""}
             </div>
 
             <div className="border-b pb-6 portfolio-divider">

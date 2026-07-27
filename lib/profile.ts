@@ -91,7 +91,20 @@ export const formatPeriod = (start?: string, end?: string, current = false) => {
 };
 
 export const getHeroExperience = (experience: Experience[]) =>
-  experience.find((item) => item.current) ?? experience[0];
+  experience.find((item) => item.current) ??
+  experience.reduce<Experience | undefined>((latest, item) => {
+    if (!latest) return item;
+
+    const currentRank = Date.parse(item.end ?? item.start ?? "");
+    const latestRank = Date.parse(latest.end ?? latest.start ?? "");
+
+    return (
+      (Number.isNaN(currentRank) ? Number.NEGATIVE_INFINITY : currentRank) >
+      (Number.isNaN(latestRank) ? Number.NEGATIVE_INFINITY : latestRank)
+    )
+      ? item
+      : latest;
+  }, undefined);
 
 export const getFeaturedProjects = (data: ResumeData) => {
   const configuredProjects =
@@ -132,30 +145,6 @@ export const getFeaturedProjects = (data: ResumeData) => {
   return featuredProjects;
 };
 
-const formatAwardSummary = (award?: Award) => {
-  if (!award) return "";
-
-  const baseText = award.link ? `${award.text} ${award.link.label}` : award.text;
-  const suffix = award.suffix ? ` ${award.suffix}` : "";
-
-  return `${baseText}${suffix}`.trim();
-};
-
-export const getHeroHighlights = (data: ResumeData) => {
-  const configuredHighlights =
-    data.homepage?.highlights?.map((highlight) => highlight.trim()).filter(Boolean) ?? [];
-
-  if (configuredHighlights.length > 0) {
-    return configuredHighlights.slice(0, 3);
-  }
-
-  return [
-    `${data.education.degree} @ ${data.education.institution}`,
-    formatAwardSummary(data.awards[0]),
-    data.skills.programmingLanguages.slice(0, 3).join(" · "),
-  ].filter(Boolean);
-};
-
 const sanitizeSkillGroup = (group: SkillGroup): SkillGroup | null => {
   const label = group.label.trim();
   const items = group.items.map((item) => item.trim()).filter(Boolean);
@@ -189,19 +178,4 @@ export const getSkillGroups = (skills: Skills) => {
   ]
     .map(sanitizeSkillGroup)
     .filter((group): group is SkillGroup => Boolean(group));
-};
-
-export const getHeroCopy = (data: ResumeData) => {
-  const heroExperience = getHeroExperience(data.experience);
-
-  return {
-    headline:
-      data.homepage?.headline ??
-      "Building reliable systems across investing, data, and developer workflows.",
-    summary:
-      data.homepage?.summary ??
-      (heroExperience
-        ? `${heroExperience.role} experience at ${heroExperience.company}, paired with ${data.education.degree} from ${data.education.institution}. Comfortable moving between quantitative research, backend systems, and automation.`
-        : `${data.education.degree} from ${data.education.institution}. Comfortable moving between quantitative research, backend systems, and automation.`),
-  };
 };
