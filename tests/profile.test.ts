@@ -4,7 +4,6 @@ import test from "node:test";
 import {
   getFeaturedProjects,
   getHeroExperience,
-  getHeroHighlights,
   type Experience,
   type Project,
   type ResumeData,
@@ -50,16 +49,6 @@ const makeResumeData = (overrides: Partial<ResumeData> = {}): ResumeData => ({
     },
   ],
   ...overrides,
-});
-
-test("getHeroHighlights derives canonical badges", () => {
-  const highlights = getHeroHighlights(makeResumeData());
-
-  assert.deepEqual(highlights, [
-    "B.Comp in Computer Science; Second Major in Mathematics @ National University of Singapore",
-    "Rated 1808 in Codeforces (Top 2.5% in Indonesia)",
-    "Go · TypeScript · Python",
-  ]);
 });
 
 test("getFeaturedProjects validates configured projects and falls back only when empty", () => {

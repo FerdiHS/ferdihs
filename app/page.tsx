@@ -9,7 +9,6 @@ import {
 import {
   getFeaturedProjects,
   getHeroExperience,
-  getHeroHighlights,
   loadResumeData,
 } from "@/lib/profile";
 
@@ -31,7 +30,12 @@ export default function Page() {
     (heroExperience
       ? `${heroExperience.role} experience at ${heroExperience.company}, paired with ${education.degree} from ${education.institution}. Comfortable moving between quantitative research, backend systems, and automation.`
       : `${education.degree} from ${education.institution}. Comfortable moving between quantitative research, backend systems, and automation.`);
-  const heroHighlights = getHeroHighlights(resumeData);
+  const primaryAward = awards[0];
+  const heroHighlights = [
+    `${education.degree} @ ${education.institution}`,
+    [primaryAward?.text, primaryAward?.link?.label, primaryAward?.suffix].filter(Boolean).join(" "),
+    skills.programmingLanguages.slice(0, 3).join(" · "),
+  ].filter(Boolean);
 
   return (
     <div className="min-h-screen text-[var(--portfolio-text)]">

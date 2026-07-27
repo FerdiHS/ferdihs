@@ -92,22 +92,6 @@ export const formatPeriod = (start?: string, end?: string, current = false) => {
 export const getHeroExperience = (experience: Experience[]) =>
   experience.find((item) => item.current) ?? experience[0];
 
-const formatAwardSummary = (award?: Award) => {
-  if (!award) return "";
-
-  const baseText = award.link ? `${award.text} ${award.link.label}` : award.text;
-  const suffix = award.suffix ? ` ${award.suffix}` : "";
-
-  return `${baseText}${suffix}`.trim();
-};
-
-export const getHeroHighlights = (data: ResumeData) =>
-  [
-    `${data.education.degree} @ ${data.education.institution}`,
-    formatAwardSummary(data.awards[0]),
-    data.skills.programmingLanguages.slice(0, 3).join(" · "),
-  ].filter(Boolean);
-
 export const getFeaturedProjects = (data: ResumeData) => {
   const configuredProjects =
     data.homepage?.featuredProjects?.map((name) => name.trim()).filter(Boolean) ?? [];
