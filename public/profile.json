@@ -116,6 +116,32 @@
       ]
     },
     {
+      "name": "NUANSA 2025",
+      "stack": "Next.js, TypeScript, Firebase, GitHub Actions, Vercel",
+      "start": "Sep 2024",
+      "end": "Sep 2025",
+      "bullets": [
+        "Built and improved the NUANSA public website and ticketing platform, covering config-driven pages, content updates, and admin workflows.",
+        "Shipped CI/CD with GitHub Actions and Vercel to automate tests and preview/live deployments.",
+        "Hardened ticket reservation reliability with transaction-based concurrency handling and seat-isolation checks to prevent double-booking.",
+        "Implemented customer creation, seat-based check-in, incremental caching, and login/email handling for the ticketing flow."
+      ],
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://www.nuansacp.org/"
+        },
+        {
+          "label": "Web Repo",
+          "url": "https://github.com/nuansacp2025/nuansa-web"
+        },
+        {
+          "label": "Ticketing Repo",
+          "url": "https://github.com/nuansacp2025/ticketing"
+        }
+      ]
+    },
+    {
       "name": "Octostate",
       "stack": "Go, GitHub API, GitOps, CLI, GitHub Actions",
       "start": "May 2026",
